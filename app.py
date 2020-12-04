@@ -40,8 +40,6 @@ def custom_route():
 
     sentences = get_sentences_from_file('lotr.txt')
     correct_sentences = find_words(sentences, words_str, int(examples_number))
-    correct_sentences['words_str'] = words_str
-    correct_sentences['examples'] = examples_number
     return f'{correct_sentences}'
 
 
