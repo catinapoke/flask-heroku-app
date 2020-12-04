@@ -2,6 +2,8 @@ from nltk import sent_tokenize
 from typing import List, Dict
 import json
 
+import nltk
+nltk.download('punkt')
 
 def read_request_json(filename: str = "request.json") -> dict:
     with open(filename) as file:
