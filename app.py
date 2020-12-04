@@ -14,14 +14,13 @@ def hello_world():
 
 @app.route('/sentences', methods=['GET', 'POST'])
 def find_sentences():
-    words = request.form.get('words')  # запрос к данным формы
+    words_str = request.form.get('words').split(';')
     examples_number = request.form.get('examples')
-    sentences = get_sentences_from_file('lotr.txt')
-    correct_sentences = find_words(sentences, words, int(examples_number))['words']
-    print(correct_sentences)
 
-    return render_template('sentences.html',
-                           sentences=correct_sentences)
+    sentences = get_sentences_from_file('lotr.txt')
+    correct_sentences = find_words(sentences, words_str, int(examples_number))['words']
+
+    return render_template('sentences.html', correct_sentences=correct_sentences)
 
 
 @app.route('/<custom_url>')

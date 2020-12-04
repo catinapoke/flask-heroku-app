@@ -3,7 +3,9 @@ from typing import List, Dict
 import json
 
 import nltk
+
 nltk.download('punkt')
+
 
 def read_request_json(filename: str = "request.json") -> dict:
     with open(filename) as file:
@@ -18,7 +20,7 @@ def get_sentences_from_file(filename: str, lang: str = "english") -> List[str]:
         return sentences
 
 
-def find_words(sentences: List[str], words: List[str], examples: int, min_len: int = 2, max_len: int = 20) -> dict:
+def find_words(sentences: List[str], words: List[str], examples: int, min_len: int = 2, max_len: int = 120) -> dict:
     ret = []
     for sentence in sentences:
         if not (min_len <= len(sentence) <= max_len):
@@ -34,6 +36,3 @@ def find_words(sentences: List[str], words: List[str], examples: int, min_len: i
 def save_response(obj: dict) -> None:
     with open("response.json", "w", encoding="utf-8") as file:
         json.dump(obj, file, ensure_ascii=True, indent=4)
-
-
-
