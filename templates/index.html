@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% if title %}
+        <title>{{book_name}} - words search</title>
+    {% else %}
+    <title>Book words search</title>
+    {% endif %}
+</head>
+<body>
+    <form action="/sentences" method="post">
+        <label for="words">Введите слово или слова (через символ ;), которые вы хотите найти в книге властелин колец</label>
+        <br>
+        <input id="words" name="words" type="text" value="sword; frodo; ring; legolas">
+        <br>
+        <label for="examples">Введите число примеров предложений</label>
+        <br>
+        <input id="examples" name="examples" type="number" value="5">
+        <br>
+        <input type="submit" value="Отправить">
+  </form>
+</body>
+</html>
