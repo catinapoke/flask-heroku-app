@@ -28,7 +28,7 @@ def find_words(sentences: List[str], words: List[str], examples: int, min_len: i
         if examples <= 0:
             break
         if any(word in sentence for word in words):
-            ret.append(sentence)
+            ret.append(sentence.replace('\n', ''))
             examples -= 1
     return {'words': ret}
 
